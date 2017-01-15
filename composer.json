@@ -47,7 +47,8 @@
             "ln -s ../src/Docler/TicTac/Resources/Public/css/ public/css",
             "ln -s ../../../vendor/swagger-api/swagger-ui/dist/ public/api/v1/doc",
             "vendor/bin/swagger --output src/Docler/Api/V1/Resources/Doc/doc.json --exclude vendor",
-            "ln -s ../../../src/Docler/Api/V1/Resources/Doc/doc.json public/api/v1/doc.json"
+            "ln -s ../../../src/Docler/Api/V1/Resources/Doc/doc.json public/api/v1/doc.json",
+            "vendor/bin/phpunit -c phpunit.xml --coverage-html public/coverage"
         ]
 	}
 }
