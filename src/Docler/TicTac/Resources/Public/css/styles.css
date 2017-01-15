@@ -1,0 +1,133 @@
+/* Color variables */
+/* Sizing constants */
+body {
+  margin: 0;
+  font: 14px Verdana;
+}
+div {
+  box-sizing: border-box;
+}
+a:active {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+#index-container {
+  border: 1px solid #d3d3d3;
+  height: 490px;
+  margin: auto;
+  padding: 5px;
+  width: 500px;
+}
+@media (max-width: 500px) {
+  #index-container {
+    width: 100%;
+  }
+}
+#index-container .player-button-container {
+  background-color: #4169e1;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "Arial";
+  font-size: 3em;
+  font-weight: 900;
+  height: 60px;
+  margin: auto;
+  margin-top: 110px;
+  padding-top: 4px;
+  text-align: center;
+  vertical-align: middle;
+  width: 60%;
+}
+@media (max-width: 500px) {
+  #index-container .player-button-container {
+    padding-top: 14px;
+    font-size: 2em;
+    width: 90%;
+  }
+}
+#board-container {
+  border: 1px solid #d3d3d3;
+  margin: auto;
+  padding: 0.3%;
+  width: 500px;
+}
+@media (max-width: 500px) {
+  #board-container {
+    padding: 0%;
+    width: 100%;
+  }
+}
+#board-container .row-container {
+  margin: auto;
+}
+#board-container .row-container .winner-cell {
+  border: 1px solid #d3d3d3;
+  display: inline-block;
+  font-size: 9em;
+  font-weight: 900;
+  height: 150px;
+  margin: 0.3%;
+  text-align: center;
+  vertical-align: middle;
+  width: 158px;
+  color: #8b0000;
+}
+@media (max-width: 500px) {
+  #board-container .row-container .winner-cell {
+    margin: 0%;
+    width: 32%;
+  }
+}
+#board-container .row-container .normal-cell {
+  border: 1px solid #d3d3d3;
+  display: inline-block;
+  font-size: 9em;
+  font-weight: 900;
+  height: 150px;
+  margin: 0.3%;
+  text-align: center;
+  vertical-align: middle;
+  width: 158px;
+  color: #6495ed;
+}
+@media (max-width: 500px) {
+  #board-container .row-container .normal-cell {
+    margin: 0%;
+    width: 32%;
+  }
+}
+#play-again {
+  background-color: #4169e1;
+  color: #ffffff;
+  cursor: pointer;
+  display: none;
+  font-family: "Arial";
+  font-size: 3em;
+  font-weight: 900;
+  height: 60px;
+  margin: auto;
+  margin-top: 50px;
+  padding-top: 4px;
+  text-align: center;
+  vertical-align: middle;
+  width: 40%;
+}
+@media (max-width: 500px) {
+  #play-again {
+    padding-top: 14px;
+    font-size: 2em;
+    width: 90%;
+  }
+}

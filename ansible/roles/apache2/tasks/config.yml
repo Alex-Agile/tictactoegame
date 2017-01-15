@@ -1,0 +1,56 @@
+---
+- name: apache2 listen on port {{ apache.port }}
+  become: yes
+  become_method: sudo
+  lineinfile: >
+    dest=/etc/apache2/ports.conf
+    regexp="^Listen "
+    line="Listen {{ apache.port }}"
+    state=present
+  notify:
+    - restart apache2
+
+- name: apache2 configure default charset UTF-8
+  become: yes
+  become_method: sudo
+  lineinfile: >
+    dest=/etc/apache2/conf-available/charset.conf
+    regexp="^#AddDefaultCharset "
+    line="AddDefaultCharset UTF-8"
+    state=present
+  notify:
+    - restart apache2
+
+- name: Configure apache2 php7.0-fpm connector
+  become: yes
+  become_method: sudo
+  template: >
+    src=../files/apache2-php7-fpm.j2
+    dest=/etc/apache2/conf-available/php7.0-fpm.conf
+
+- name: Enabled confs
+  become: yes
+  become_method: sudo
+  command: a2enconf php7.0-fpm
+  notify:
+    - restart apache2
+
+- name: apache2 default virtualhost on port {{ apache.port }}
+  become: yes
+  become_method: sudo
+  lineinfile: >
+    dest=/etc/apache2/sites-available/000-default.conf
+    regexp="^<VirtualHost \*:"
+    line="<VirtualHost *:{{ apache.port }}>"
+  notify:
+    - restart apache2
+
+- name: apache2 default virtualhost on port {{ apache.tls.port }}
+  become: yes
+  become_method: sudo
+  lineinfile: >
+    dest=/etc/apache2/sites-available/default-ssl.conf
+    regexp="^<VirtualHost \*:"
+    line="<VirtualHost *:{{ apache.tls.port }}>"
+  notify:
+    - restart apache2

@@ -1,0 +1,15 @@
+.vagrant
+.idea/workspace.xml
+vagrant_inventory.yml
+/vendor/
+/logs/*
+!/logs/README.md
+/cache/*
+!/cache/.gitkeep
+/public/api/v1/*
+!/public/api/v1/.gitkeep
+/public/coverage/*
+!/public/coverage/.gitkeep
+/public/css
+/public/js/*
+!/public/js/.gitkeep

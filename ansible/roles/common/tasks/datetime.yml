@@ -1,0 +1,15 @@
+---
+- name: Configure time zone
+  become: yes
+  become_method: sudo
+  command: timedatectl set-timezone {{ timezone }}
+
+- name: Configure Datetime syncro script
+  become: yes
+  become_method: sudo
+  copy: >
+    src=files/ntpdate
+    dest=/etc/cron.hourly/ntpdate
+    owner=root
+    group=root
+    mode=0744

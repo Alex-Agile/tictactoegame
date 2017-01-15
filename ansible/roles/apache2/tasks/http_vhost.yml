@@ -1,0 +1,14 @@
+---
+- name: Create {{ inventory_hostname }}_{{ apache.port }} virtual host file
+  become: yes
+  become_method: sudo
+  template: >
+    src=../files/{{ inventory_hostname }}_{{ apache.port }}.conf_php7.j2
+    dest=/etc/apache2/sites-available/{{ inventory_hostname }}_{{ apache.port }}.conf
+
+- name: Add site {{ inventory_hostname }}_{{ apache.port }}
+  become: yes
+  become_method: sudo
+  command: a2ensite {{ inventory_hostname }}_{{ apache.port }}.conf
+  notify:
+    - restart apache2

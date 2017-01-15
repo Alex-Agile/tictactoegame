@@ -1,0 +1,13 @@
+<VirtualHost *:{{ apache.port }}>
+  ServerName {{ inventory_hostname }}
+
+  RewriteEngine on
+
+  ## Throw a 403 (forbidden) status for non secure requests
+  RewriteCond %{HTTPS} off
+  RewriteRule ^.*$ - [L,R=403]
+
+  ## Logging
+  CustomLog "/var/log/apache2/{{ inventory_hostname }}_{{ apache.port }}_access.log" combined
+
+</VirtualHost>

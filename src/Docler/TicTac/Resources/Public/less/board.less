@@ -1,0 +1,60 @@
+@import "global.less";
+
+#board-container {
+  border: 1px solid @lightgrey;
+  margin: auto;
+  padding: 0.3%;
+  width: @mobile-width;
+  @media (max-width: @mobile-width) {
+    padding: 0%;
+    width: @mobile-container-width;
+  }
+  .row-container {
+    margin: auto;
+    .cell-container() {
+      border: 1px solid @lightgrey;
+      display: inline-block;
+      font-size: 9em;
+      font-weight: 900;
+      height: 150px;
+      margin: 0.3%;
+      text-align: center;
+      vertical-align: middle;
+      width: 158px;
+      @media (max-width: @mobile-width) {
+        margin: 0%;
+        width: 32%;
+      }
+    }
+    .winner-cell {
+      .cell-container();
+      color: @darkred;
+    }
+    .normal-cell {
+      .cell-container();
+      color: @cornflowerblue;
+    }
+  }
+}
+#play-again {
+  background-color: @royalblue;
+  color: @white;
+  cursor: pointer;
+  display: none;
+  font-family: "Arial";
+  font-size: 3em;
+  font-weight: 900;
+  height: 60px;
+  margin: auto;
+  margin-top: 50px;
+  padding-top: 4px;
+  text-align: center;
+  vertical-align: middle;
+  width: 40%;
+  @media (max-width: @mobile-width) {
+    padding-top: 14px;
+    font-size: 2em;
+    width: 90%;
+  }
+}
+

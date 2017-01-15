@@ -1,0 +1,28 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Docler Tic Tac Toe Api V1",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/move": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "Request the Game to place a new game piece."
+                    }
+                }
+            }
+        },
+        "/api/v1/bot-move": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "Request the Game Bot to chose a new move to place a new game piece."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}

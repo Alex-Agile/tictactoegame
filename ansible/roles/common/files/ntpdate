@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo /usr/sbin/ntpdate pool.ntp.org 1> /dev/null 2>&1

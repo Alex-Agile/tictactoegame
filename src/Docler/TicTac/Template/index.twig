@@ -1,0 +1,12 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<div id="index-container">
+    <div id="one-player-button" class="player-button-container">
+        <a href="{{ path_for('board', { 'option': 'one-player' }) }}">One player</a>
+    </div>
+    <div id="two-player-button" class="player-button-container">
+        <a href="{{ path_for('board', { 'option': 'two-player' }) }}">Two player</a>
+    </div>
+</div>
+{% endblock %}

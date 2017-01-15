@@ -1,0 +1,40 @@
+<VirtualHost *:{{ apache.tls.port }}>
+  ServerName {{ inventory_hostname }}
+
+  RewriteEngine on
+
+  ## Vhost docroot
+  DocumentRoot "{{ apache.host_path }}/{{ inventory_hostname }}/public"
+
+  ## Directories
+  <Directory "{{ apache.host_path }}/{{ inventory_hostname }}/public">
+    Options Indexes FollowSymlinks MultiViews
+    AllowOverride All
+    Require all granted
+  </Directory>
+
+  <Directory /usr/lib/cgi-bin>
+    Require all granted
+  </Directory>
+
+  ## Logging
+  ErrorLog "/var/log/apache2/{{ inventory_hostname }}_{{ apache.tls.port }}_error.log"
+  ServerSignature Off
+  CustomLog "/var/log/apache2/{{ inventory_hostname }}_{{ apache.tls.port }}_access.log" combined
+
+  ## SetEnv/SetEnvIf for environment variables
+  SetEnv APP_ENV {{ apache.environment }}
+  SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+  SSLEngine on
+
+  SSLCertificateFile {{ apache.tls.cert_file }}
+  SSLCertificateKeyFile {{ apache.tls.cert_key_file }}
+
+  BrowserMatch "MSIE [2-6]" nokeepalive ssl-unclean-shutdown downgrade-1.0 force-response-1.0
+  # MSIE 7 and newer should be able to use keepalive
+  BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+  ## Custom fragment
+  ##
+</VirtualHost>

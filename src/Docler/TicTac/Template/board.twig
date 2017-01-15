@@ -1,0 +1,30 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div id="board-container">
+        <div class="row-container">
+            <div id="cell-00" class="normal-cell"></div>
+            <div id="cell-01" class="normal-cell"></div>
+            <div id="cell-02" class="normal-cell"></div>
+        </div>
+        <div class="row-container">
+            <div id="cell-10" class="normal-cell"></div>
+            <div id="cell-11" class="normal-cell"></div>
+            <div id="cell-12" class="normal-cell"></div>
+        </div>
+        <div class="row-container">
+            <div id="cell-20" class="normal-cell"></div>
+            <div id="cell-21" class="normal-cell"></div>
+            <div id="cell-22" class="normal-cell"></div>
+        </div>
+    </div>
+    <div id="play-again">
+        <a href="{{ path_for('home') }}">Play again</a>
+    </div>
+
+    <script type="application/javascript">
+        var gameType = '{{ gameType }}';
+        var authToken = '{{ authToken }}';
+    </script>
+    <script type="application/javascript" src="/js/game.js"></script>
+{% endblock %}

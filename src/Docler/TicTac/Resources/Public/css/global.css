@@ -1,0 +1,25 @@
+/* Color variables */
+/* Sizing constants */
+body {
+  margin: 0;
+  font: 14px Verdana;
+}
+div {
+  box-sizing: border-box;
+}
+a:active {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}

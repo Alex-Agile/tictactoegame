@@ -1,0 +1,27 @@
+---
+- name: Create {{ inventory_hostname }}_{{ apache.tls.port }} virtual host file
+  become: yes
+  become_method: sudo
+  template: >
+    src=../files/{{ inventory_hostname }}_{{ apache.tls.port }}.conf_php7.j2
+    dest=/etc/apache2/sites-available/{{ inventory_hostname }}_{{ apache.tls.port }}.conf
+
+- name: generate TLS certificates
+  become: yes
+  become_method: sudo
+  command: >
+    openssl req
+    -x509
+    -nodes
+    -days 3650
+    -newkey rsa:2048
+    -subj /CN={{ inventory_hostname }}
+    -keyout {{ apache.tls.cert_key_file }}
+    -out {{ apache.tls.cert_file }}
+
+- name: Add site {{ inventory_hostname }}_{{ apache.tls.port }}
+  become: yes
+  become_method: sudo
+  command: a2ensite {{ inventory_hostname }}_{{ apache.tls.port }}.conf
+  notify:
+    - restart apache2

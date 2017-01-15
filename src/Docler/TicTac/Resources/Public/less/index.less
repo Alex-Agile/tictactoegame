@@ -1,0 +1,32 @@
+@import "global.less";
+
+#index-container {
+  border: 1px solid @lightgrey;
+  height: 490px;
+  margin: auto;
+  padding: 5px;
+  width: @mobile-width;
+  @media (max-width: @mobile-width) {
+    width: @mobile-container-width;
+  }
+  .player-button-container {
+    background-color: @royalblue;
+    color: @white;
+    cursor: pointer;
+    font-family: "Arial";
+    font-size: 3em;
+    font-weight: 900;
+    height: 60px;
+    margin: auto;
+    margin-top: 110px;
+    padding-top: 4px;
+    text-align: center;
+    vertical-align: middle;
+    width: 60%;
+    @media (max-width: @mobile-width) {
+      padding-top: 14px;
+      font-size: 2em;
+      width: 90%;
+    }
+  }
+}
