@@ -39,8 +39,7 @@
         "start": "php -S 0.0.0.0:8080 -t public public/index.php",
         "test": "phpunit",
         "post-update-cmd": [
-            "vendor/bin/swagger --output src/Docler/Api/V1/Resources/Doc/doc.json --exclude vendor",
-            "vendor/bin/phpunit -c phpunit.xml --coverage-html public/coverage"
+            "vendor/bin/swagger --output src/Docler/Api/V1/Resources/Doc/doc.json --exclude vendor"
         ],
         "post-install-cmd": [
             "ln -s ../../src/Docler/TicTac/Resources/Public/js/game.js public/js/game.js",
@@ -48,8 +47,7 @@
             "ln -s ../src/Docler/TicTac/Resources/Public/css/ public/css",
             "ln -s ../../../vendor/swagger-api/swagger-ui/dist/ public/api/v1/doc",
             "vendor/bin/swagger --output src/Docler/Api/V1/Resources/Doc/doc.json --exclude vendor",
-            "ln -s ../../../src/Docler/Api/V1/Resources/Doc/doc.json public/api/v1/doc.json",
-            "vendor/bin/phpunit -c phpunit.xml --coverage-html public/coverage"
+            "ln -s ../../../src/Docler/Api/V1/Resources/Doc/doc.json public/api/v1/doc.json"
         ]
 	}
 }
