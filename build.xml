@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Tic Tac Toe Game" default="build" basedir=".">
+    <property name="composer.path" value="composer" />
+    <available property="composer.exists" file="${composer.path}" />
+
+    <target name="build" depends="clean,vendors,prepare,phpunit"/>
+
+    <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${basedir}/build/coverage"/>
+        <delete dir="${basedir}/build/logs"/>
+        <delete dir="${basedir}/build/pdepend"/>
+    </target>
+
+    <target name="vendors" depends="composer">
+        <exec executable="${basedir}/composer" failonerror="true">
+            <arg value="update" />
+        </exec>
+    </target>
+
+    <target name="prepare" depends="clean,vendors" description="Prepare for build">
+        <mkdir dir="${basedir}/build/coverage"/>
+        <mkdir dir="${basedir}/build/logs"/>
+        <mkdir dir="${basedir}/build/pdepend"/>
+    </target>
+
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+        <exec executable="vendor/bin/phpunit" failonerror="true">
+            <arg line="-c phpunit.xml
+                --coverage-html ${basedir}/build/coverage
+                --coverage-clover ${basedir}/build/logs/clover.xml
+                --log-junit ${basedir}/build/logs/junit.xml"/>
+        </exec>
+    </target>
+</project>
