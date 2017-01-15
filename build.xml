@@ -11,13 +11,13 @@
         <delete dir="${basedir}/build/pdepend"/>
     </target>
 
-    <target name="vendors" depends="composer">
+    <target name="vendors">
         <exec executable="${basedir}/composer" failonerror="true">
             <arg value="update" />
         </exec>
     </target>
 
-    <target name="prepare" depends="clean,vendors" description="Prepare for build">
+    <target name="prepare" description="Prepare for build">
         <mkdir dir="${basedir}/build/coverage"/>
         <mkdir dir="${basedir}/build/logs"/>
         <mkdir dir="${basedir}/build/pdepend"/>
