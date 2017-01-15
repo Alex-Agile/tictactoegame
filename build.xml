@@ -3,12 +3,17 @@
     <property name="composer.path" value="composer" />
     <available property="composer.exists" file="${composer.path}" />
 
-    <target name="build" depends="clean,vendors,prepare,phpunit"/>
+    <target name="build" depends="clean,composer,vendors,prepare,phpunit"/>
 
     <target name="clean" description="Cleanup build artifacts">
         <delete dir="${basedir}/build/coverage"/>
         <delete dir="${basedir}/build/logs"/>
         <delete dir="${basedir}/build/pdepend"/>
+    </target>
+
+    <target name="composer" unless="composer.exists">
+        <get src="http://getcomposer.org/composer.phar" dest="${composer.path}" />
+        <chmod file="${composer.path}" perm="775" />
     </target>
 
     <target name="vendors">
