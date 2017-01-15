@@ -51,14 +51,6 @@ class BotMoveAction
                     'message' => $e->getMessage(),
                 ],
             ];
-        } catch (\Exception $e) {
-            return [
-                'result' => false,
-                'data' => [
-                    'gameOver' => false,
-                    'message' => $e->getMessage(),
-                ],
-            ];
         }
     }
 }

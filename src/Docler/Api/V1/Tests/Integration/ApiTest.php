@@ -79,6 +79,55 @@ class ApiTest extends IntegrationBaseTestCase
     }
 
     /**
+     * Test that Correct Api Move Call For A Finished Game Should Return An Invalid Response
+     */
+    public function testCorrectApiMoveCallForAFinishedGameShouldReturnAnInvalidResponse()
+    {
+        $game = new Game(new Board());
+        $game->setGameStatus(Game::GAME_STATUS_FINISH);
+
+        $_SESSION['authToken'] = 'MOCK_AUTHORIZATION_CODE';
+        $_SESSION['game'] = $game;
+
+        $response = $this->runApp('PUT', '/api/v1/move', [
+            'coordinate_x' => 1,
+            'coordinate_y' => 1,
+        ]);
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(json_encode([
+            'result' => false,
+            'data'   => [
+                'gameOver' => true,
+                'message' => 'Game is over.'
+            ],
+        ]), (string)$response->getBody());
+    }
+
+    /**
+     * Test that Incorrect Api Move Call For A Finished Game Should Return An Invalid Response
+     */
+    public function testIncorrectApiMoveCallForAFinishedGameShouldReturnAnInvalidResponse()
+    {
+        $_SESSION['authToken'] = 'MOCK_AUTHORIZATION_CODE';
+        $_SESSION['game'] = new Game(new Board());
+
+        $response = $this->runApp('PUT', '/api/v1/move', [
+            'coordinate_x' => 4,
+            'coordinate_y' => 4,
+        ]);
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(json_encode([
+            'result' => false,
+            'data'   => [
+                'gameOver' => false,
+                'message' => 'Not possible to move to 4, 4. Not existing coordinates.'
+            ],
+        ]), (string)$response->getBody());
+    }
+
+    /**
      * Test that Correct Api Bot Move Call With Valid Authentication Should Return A Valid Response
      */
     public function testCorrectApiBotMoveCallWithValidAuthenticationShouldReturnAValidResponse()
@@ -136,6 +185,32 @@ class ApiTest extends IntegrationBaseTestCase
             'data'   => [
                 'gameOver' => true,
                 'message' => 'Authorization error.'
+            ],
+        ]), (string)$response->getBody());
+    }
+
+    /**
+     * Test that Correct Bot Api Move Call For A Finished Game Should Return An Invalid Response
+     */
+    public function testCorrectBotApiMoveCallForAFinishedGameShouldReturnAnInvalidResponse()
+    {
+        $game = new Game(new Board());
+        $game->setGameStatus(Game::GAME_STATUS_FINISH);
+
+        $_SESSION['authToken'] = 'MOCK_AUTHORIZATION_CODE';
+        $_SESSION['game'] = $game;
+
+        $response = $this->runApp('PUT', '/api/v1/bot-move', [
+            'coordinate_x' => 1,
+            'coordinate_y' => 1,
+        ]);
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(json_encode([
+            'result' => false,
+            'data'   => [
+                'gameOver' => true,
+                'message' => 'Game is over.'
             ],
         ]), (string)$response->getBody());
     }
