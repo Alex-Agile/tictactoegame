@@ -41,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             machine.vm.network "forwarded_port", guest: inventory["port_guest"], host: inventory["port_host"], id: 'ssh'
 
             # Sync folder settings
-            machine.vm.synced_folder ".", inventory["target_folder"], nfs: true
+            machine.vm.synced_folder ".", inventory["target_folder"] # , nfs: true
 
             # Virtal machine provider settings
             machine.vm.provider :virtualbox do |vb|
