@@ -13,20 +13,20 @@ use TicTacToeGame\TicTac\Exception\NotEmptyPositionException;
  *
  * @package TicTacToeGame\TicTac\Domain\Grid
  */
-class Board implements \JsonSerializable
+class Board
 {
     /** @var array $boardState Current board status */
     private $boardState = [];
 
     /**
-     * Initializes board status
+     * Board constructor.
      */
-    public function init()
+    public function __construct()
     {
         $this->boardState = [
-            [new Cell(), new Cell(), new Cell()],
-            [new Cell(), new Cell(), new Cell()],
-            [new Cell(), new Cell(), new Cell()],
+            ['','',''],
+            ['','',''],
+            ['','',''],
         ];
     }
 
@@ -44,78 +44,9 @@ class Board implements \JsonSerializable
      */
     public function setGamePiece(int $x, int $y, string $team): bool
     {
-        // get boardState
-        $boardState = $this->getBoardState();
-
-        // check if position is valid
-        if (!array_key_exists($x, $boardState) || !array_key_exists($y, $boardState[$x])) {
-            throw new InvalidPositionException("Not possible to move to $x, $y. Not existing coordinates.");
-        }
-
-        /** @var Cell $cell */
-        $cell = $boardState[$x][$y];
-
-        // check if position is empty
-        if (!$cell->isEmpty()) {
-            throw new NotEmptyPositionException("Not possible to move to $x, $y. Cell already occupied.");
-        }
-
-        // set position and boardState
-        $cell->setTeam($team);
-        $this->setBoardState($boardState);
+        $this->boardState[$x][$y] = $team;
 
         return true;
-    }
-
-    /**
-     * Returns current board status as an array of string arrays
-     *
-     * @return array
-     */
-    public function statusToArray()
-    {
-        $status = [];
-
-        $board = $this->getBoardState();
-        foreach ($board as $row) {
-            $rowArray = [];
-
-            /** @var Cell $cell */
-            foreach ($row as $cell) {
-                $rowArray[] = $cell->getTeam();
-            }
-
-            $status[] = $rowArray;
-        }
-
-        return $status;
-    }
-
-    /**
-     * Serializes current board status for json_encode methods
-     *
-     * @return array
-     */
-    public function jsonSerialize()
-    {
-        $json = [];
-
-        $board = $this->getBoardState();
-        foreach ($board as $row) {
-            $jsonRow = [];
-
-            /** @var Cell $cell */
-            foreach ($row as $cell) {
-                $jsonRow[] = [
-                    'team' => $cell->getTeam(),
-                    'winner' => $cell->isWinner(),
-                ];
-            }
-
-            $json[] = $jsonRow;
-        }
-
-        return $json;
     }
 
     /**
