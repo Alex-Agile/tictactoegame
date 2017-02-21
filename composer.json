@@ -1,14 +1,14 @@
 {
     "name": "Tic Tac Toe Game - Alejandro Barba",
-    "description": "Tic Tac Toe Game using Slim Framework and Minimax Algorithm for Docler Holding assessent by Alejandro Barba",
+    "description": "Tic Tac Toe Game using Slim Framework and Minimax Algorithm for TicTacToeGame Holding assessent by Alejandro Barba",
     "keywords": ["microframework", "rest", "router", "psr7"],
-    "homepage": "http://github.com/alex-agile/docler-tic-tac",
+    "homepage": "http://github.com/alex-agile/TicTacToeGame-tic-tac",
     "license": "MIT",
     "authors": [
         {
             "name": "Alejandro Barba Prieto",
             "email": "abarbaprieto@gmail.com",
-            "homepage": "http://github.com/alex-agile/docler-tic-tac"
+            "homepage": "http://github.com/alex-agile/TicTacToeGame-tic-tac"
         }
     ],
     "require": {
@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Docler\\": "src/Docler/"
+            "TicTacToeGame\\": "src/TicTacToeGame/"
         }
     },
     "autoload-dev": {
@@ -39,15 +39,15 @@
         "start": "php -S 0.0.0.0:8080 -t public public/index.php",
         "test": "phpunit",
         "post-update-cmd": [
-            "vendor/bin/swagger --output src/Docler/Api/V1/Resources/Doc/doc.json --exclude vendor"
+            "vendor/bin/swagger --output src/TicTacToeGame/Api/V1/Resources/Doc/doc.json --exclude vendor"
         ],
         "post-install-cmd": [
-            "ln -s ../../src/Docler/TicTac/Resources/Public/js/game.js public/js/game.js",
+            "ln -s ../../src/TicTacToeGame/TicTac/Resources/Public/js/game.js public/js/game.js",
             "ln -s ../../vendor/components/jquery/jquery.min.js public/js/jquery.min.js",
-            "ln -s ../src/Docler/TicTac/Resources/Public/css/ public/css",
+            "ln -s ../src/TicTacToeGame/TicTac/Resources/Public/css/ public/css",
             "ln -s ../../../vendor/swagger-api/swagger-ui/dist/ public/api/v1/doc",
-            "vendor/bin/swagger --output src/Docler/Api/V1/Resources/Doc/doc.json --exclude vendor",
-            "ln -s ../../../src/Docler/Api/V1/Resources/Doc/doc.json public/api/v1/doc.json",
+            "vendor/bin/swagger --output src/TicTacToeGame/Api/V1/Resources/Doc/doc.json --exclude vendor",
+            "ln -s ../../../src/TicTacToeGame/Api/V1/Resources/Doc/doc.json public/api/v1/doc.json",
             "vendor/bin/phpunit -c phpunit.xml --coverage-html public/coverage"
         ]
 	}

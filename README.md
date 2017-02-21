@@ -1,9 +1,43 @@
-# Docler Holding - Tic Tac Assessment
+# Ansible Super LAMP Environment Provisioner
+
+Ansible provisioner for LAMP environments using Apache2, Php-fpm 7.1, MySQL 5.7, Xdebug, Composer, Git, Redis and Blackfire.
+
+## Dependencies
+
+- VirtualBox. Install with: 
+
+        *sudo apt-get update*
+        *sudo apt-get install virtualbox*
+
+- Vagrant. Download latest version from official website and install.
+
+- Ansible. Install with: 
+         
+         *sudo apt-get update*         
+         *sudo apt-get install ansible*
+
+## Installation
+
+1. Copy *vagrant_inventory.example.yml* to *vagrant_inventory.yml* and modify what required.
+
+2. Be sure to replace on *ansible/hosts*:
+
+- *tictactoegame* to the same value as *name* on vagrant_inventory.yml
+- *ansible_ssh_port* to the same value as *port_host* on vagrant_inventory.yml
+- *machine name* on *ansible_ssh_private_key_file* to the same value as *name* on vagrant_inventory.yml
+
+
+
+
+
+
+
+# TicTacToeGame Holding - Tic Tac Assessment
 Alejandro Barba Prieto
 
 ##Introduction
 
-This is the code repository for Docler Holding - Php Developer Assessment: Tic Tac Toe Game.
+This is the code repository for TicTacToeGame Holding - Php Developer Assessment: Tic Tac Toe Game.
 
 Technologies I have used to develop the game are:
 
@@ -63,8 +97,8 @@ You can check the Swagger API documentation on: https://tictactoe.alexagile.com/
 The Continuous Integration of the project is provided by Jenkins Server on:
 http://jenkins.alexagile.com/job/TicTac/
 
-User: docler
-Passwd: docler
+User: TicTacToeGame
+Passwd: TicTacToeGame
 
 Code coverage can be checked on:
 http://jenkins.alexagile.com/job/TicTac/HTML_Coverage/
@@ -77,11 +111,11 @@ If you prefer to deploy and execute the app on your own server you can try the V
 2. Review the values on the file "ansible/hosts" to make them agree with the previous file.
 3. Execute: vagrant up
 4. Ssh the Vagrant with: vagrant ssh
-5. Go to "/var/www/local.doclertictac.com" and execute "composer install"
-6. Map "local.doclertictac.com" to your Vagrant Ip in your host machine.
+5. Go to "/var/www/local.tictactoegame.com" and execute "composer install"
+6. Map "local.tictactoegame.com" to your Vagrant Ip in your host machine.
 7. Urls are: 
-    - Game: https://local.doclertictac.com
-    - Api doc: https://local.doclertictac.com/api/v1/doc 
-    (in the text box write: https://local.doclertictac.com/api/v1/doc.json)
-    - Code coverage: https://local.doclertictac.com/coverage/index.html
+    - Game: https://local.tictactoegame.com
+    - Api doc: https://local.tictactoegame.com/api/v1/doc 
+    (in the text box write: https://local.tictactoegame.com/api/v1/doc.json)
+    - Code coverage: https://local.tictactoegame.com/coverage/index.html
 8. Enjoy

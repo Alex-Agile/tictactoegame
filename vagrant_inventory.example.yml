@@ -1,12 +1,11 @@
-- name: doclertictac
-  ansible_machine_name: local.doclertictac.com
+- name: tictactoegame
+  ansible_machine_name: tictactoegame
   box: ubuntu/trusty64
   ram: 2048
-  ip: 192.168.33.45
+  ip: 192.168.33.70
   port_guest: 22
-  port_host: 2045
-  target_folder: /var/www/local.doclertictac.com
+  port_host: 2070
+  target_folder: /var/www/tictactoegame
   ansible_playbook: ./ansible/main.yml
   ansible_extra_vars: { php_version: 7 }
-  ansible_verbose: false
-  # ansible_verbose: vvvv
+  ansible_verbose: false #false|vvvv

@@ -1,2 +1,2 @@
 ---
-# defaults file for ansible/roles/swap
+size: 1G

@@ -1,13 +1,25 @@
 ---
-- name: Provision Docler Tic Tac Development Environment
+- name: Ansible Super LAMP Environment Provisioner
   hosts: all
-  gather_facts: False
+  gather_facts: true
   vars:
     user: "{{ ansible_ssh_user }}"
   vars_files:
     - vars/variables.yml
   roles:
-    - common
-    - swap
-    - apache2
-    - php-fpm
+#    - common
+#    - swap
+#    - geerlingguy.ntp
+#    - repositories
+#    - apache-ssl-certs
+    - geerlingguy.apache
+#    - geerlingguy.php
+##    - geerlingguy.mysql
+#    - geerlingguy.apache-php-fpm
+##    - geerlingguy.php-mysql
+#    - geerlingguy.php-xdebug
+#    - geerlingguy.composer
+##    - geerlingguy.redis
+##    - geerlingguy.php-redis
+#    - geerlingguy.git
+##    - geerlingguy.blackfire

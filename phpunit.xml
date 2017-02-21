@@ -1,20 +1,20 @@
 <phpunit colors="true" bootstrap="bootstrap.php" verbose="true">
     <testsuites>
         <testsuite name="Api">
-            <directory>src/Docler/Api/V1/Tests</directory>
+            <directory>src/TicTacToeGame/Api/V1/Tests</directory>
         </testsuite>
         <testsuite name="TicTacApp">
-            <directory>src/Docler/TicTac/Tests</directory>
+            <directory>src/TicTacToeGame/TicTac/Tests</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix=".php">src/Docler</directory>
+            <directory suffix=".php">src/TicTacToeGame</directory>
             <exclude>
                 <directory>vendor</directory>
-                <directory>src/Docler/Api/V1/Tests</directory>
-                <directory>src/Docler/App</directory>
-                <directory>src/Docler/TicTac/Tests</directory>
+                <directory>src/TicTacToeGame/Api/V1/Tests</directory>
+                <directory>src/TicTacToeGame/App</directory>
+                <directory>src/TicTacToeGame/TicTac/Tests</directory>
             </exclude>
         </whitelist>
     </filter>

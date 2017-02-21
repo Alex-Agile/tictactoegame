@@ -1,10 +1,2 @@
 vagrant:
   user: ubuntu
-
-php_fpm:
-  port: 9000
-
-php:
-  xdebug:
-    remote_port: 9090
-    idekey: vagrant

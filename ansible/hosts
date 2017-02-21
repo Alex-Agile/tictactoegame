@@ -1,6 +1,6 @@
 # Ubuntu 14.04 LTS hosts with python2
 [trusty]
-local.doclertictac.com ansible_ssh_host=127.0.0.1 ansible_ssh_port=2045 ansible_user=ubuntu ansible_ssh_private_key_file=.vagrant/machines/local.doclertictac.com/virtualbox/private_key
+tictactoegame ansible_ssh_host=127.0.0.1 ansible_ssh_port=2070 ansible_os_family=Debian ansible_user=ubuntu ansible_ssh_private_key_file=.vagrant/machines/tictactoegame/virtualbox/private_key
 
 [trusty:vars]
 ubuntu_family=trusty

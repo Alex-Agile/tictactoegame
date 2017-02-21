@@ -1,5 +1,4 @@
 ---
-# tasks file for ansible/roles/common
 - name: Install python 2.7
   raw: apt-get update -qq && apt-get install -qq python2.7
   when: ubuntu_family=='xenial'
@@ -18,10 +17,5 @@
   vars:
     packages:
       - language-pack-en
-      - ntpdate
-      - git
       - ant
       - python-mysqldb
-
-- name: Configure DateTime
-  include: datetime.yml

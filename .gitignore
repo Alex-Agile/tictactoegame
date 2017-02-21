@@ -13,3 +13,4 @@ vagrant_inventory.yml
 /public/css
 /public/js/*
 !/public/js/.gitkeep
+/ansible/main.retry

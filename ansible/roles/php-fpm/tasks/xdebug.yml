@@ -1,7 +1,0 @@
----
-- name: Configure xdebug extension
-  become: yes
-  become_method: sudo
-  template: >
-    src=../files/xdebug.ini.j2
-    dest=/etc/php/7.0/mods-available/xdebug.ini

@@ -21,19 +21,19 @@ if (empty($_ENV['APP_ENV'])) {
 }
 
 // Load app settings
-$settings = \Docler\App\Config\SettingsStore::getSettings($_ENV['APP_ENV']);
+$settings = \TicTacToeGame\App\Config\SettingsStore::getSettings($_ENV['APP_ENV']);
 
 // Instantiate the app
 $app = new \Slim\App($settings);
 
 // Set up dependencies
-(new \Docler\App\Dependency\DependencyLoader())($app);
+(new \TicTacToeGame\App\Dependency\DependencyLoader())($app);
 
 // Register middleware
-(new \Docler\App\Middleware\MiddlewareLoader())($app);
+(new \TicTacToeGame\App\Middleware\MiddlewareLoader())($app);
 
 // Register routes
-(new \Docler\App\Route\RouteLoader())($app);
+(new \TicTacToeGame\App\Route\RouteLoader())($app);
 
 // Run app
 $app->run();
