@@ -115,6 +115,6 @@ class GameTest extends \PHPUnit_Framework_TestCase
         $game = new Game($boardMock);
         $game->move(0, 0);
 
-        $this->assertEquals(Game::GAME_STATUS_FINISH, $game->getGameStatus());
+        $this->assertEquals(Game::GAME_STATUS_FINISH, $game->getGameStatus()); 
     }
 }
