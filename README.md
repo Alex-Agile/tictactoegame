@@ -1,55 +1,18 @@
-# Ansible Super LAMP Environment Provisioner
-
-Ansible provisioner for LAMP environments using Apache2, Php-fpm 7.1, MySQL 5.7, Xdebug, Composer, Git, Redis and Blackfire.
-
-## Dependencies
-
-- VirtualBox. Install with: 
-
-        *sudo apt-get update*
-        *sudo apt-get install virtualbox*
-
-- Vagrant. Download latest version from official website and install.
-
-- Ansible. Install with: 
-         
-         *sudo apt-get update*         
-         *sudo apt-get install ansible*
-
-## Installation
-
-1. Copy *vagrant_inventory.example.yml* to *vagrant_inventory.yml* and modify what required.
-
-2. Be sure to replace on *ansible/hosts*:
-
-- *tictactoegame* to the same value as *name* on vagrant_inventory.yml
-- *ansible_ssh_port* to the same value as *port_host* on vagrant_inventory.yml
-- *machine name* on *ansible_ssh_private_key_file* to the same value as *name* on vagrant_inventory.yml
-
-
-
-
-
-
-
-# TicTacToeGame Holding - Tic Tac Assessment
-Alejandro Barba Prieto
+# TicTacToeGame - Alex Agile
 
 ##Introduction
 
-This is the code repository for TicTacToeGame Holding - Php Developer Assessment: Tic Tac Toe Game.
+This is the Tic Tac Toe Game.
 
-Technologies I have used to develop the game are:
+Technologies used to develop the game are:
 
 - Vagrant. To create portable virtual machines and facilitate development environments.
 
 - Ansible. To provision the development environment and guarantee same server versions for all developers. This way
 I'm able to provide either a software and a (virtual) hardware implementation to avoid problems when trying the code.
 
-- Slim 3 Framework. Being that the assessment required to implement an API I choose to use Slim because I have been
-reading a bit about how easy and fast is to create APIs with this PSR7 compatible lightweight micro framework and 
-I really wanted to try it. So, to make the assessment funnier I decided to try it (and avoid to use a macro framework 
-like Symfony or write everything from scratch) so, even if not getting the position, at least I would learn Slim :).
+- Slim 3 Framework. I choose to use Slim because I have been reading a bit about how easy and fast is to create APIs 
+with this PSR7 compatible lightweight micro framework and I really wanted to try it.
 
 - Monolog. To log messages following a PSR standard.
 
@@ -103,10 +66,22 @@ Passwd: TicTacToeGame
 Code coverage can be checked on:
 http://jenkins.alexagile.com/job/TicTac/HTML_Coverage/
 
-##Install on local server
+## Dependencies
 
-If you prefer to deploy and execute the app on your own server you can try the Vagrant-Ansible provision.
- 
+- VirtualBox. Install with: 
+
+        *sudo apt-get update*
+        *sudo apt-get install virtualbox*
+
+- Vagrant. Download latest version from official website and install.
+
+- Ansible. Install with: 
+         
+         *sudo apt-get update*         
+         *sudo apt-get install ansible*
+
+## Installation
+
 1. Copy "vagrant_inventory.example.yml" to "vagrant_inventory.yml" and set it up.
 2. Review the values on the file "ansible/hosts" to make them agree with the previous file.
 3. Execute: vagrant up
