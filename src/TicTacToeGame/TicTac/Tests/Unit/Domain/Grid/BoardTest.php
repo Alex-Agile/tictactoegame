@@ -20,14 +20,6 @@ class BoardTest extends \PHPUnit_Framework_TestCase
      */
     public function testInitShouldInitializeAnEmptyBoard()
     {
-        $board = new Board();
-        $board->init();
-
-        $boardState = $board->getBoardState();
-        $this->assertTrue(is_array($boardState));
-        $this->assertCount(3, $boardState);
-        $this->assertTrue(is_array($boardState[0]));
-        $this->assertInstanceOf(Cell::class, $boardState[0][0]);
     }
 
     /**
@@ -35,10 +27,6 @@ class BoardTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetGamePiecePositiveCase()
     {
-        $board = new Board();
-        $board->init();
-
-        $this->assertTrue($board->setGamePiece(1, 1, 'X'));
     }
 
     /**
@@ -48,10 +36,6 @@ class BoardTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetGamePieceForAnInvalidPositionShouldThrownAnException()
     {
-        $board = new Board();
-        $board->init();
-
-        $board->setGamePiece(4, 4, 'X');
     }
 
     /**
@@ -61,11 +45,6 @@ class BoardTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetGamePieceForAnOccupiedPositionShouldThrownAnException()
     {
-        $board = new Board();
-        $board->init();
-
-        $board->setGamePiece(1, 1, 'X');
-        $board->setGamePiece(1, 1, 'O');
     }
 
     /**
@@ -73,14 +52,6 @@ class BoardTest extends \PHPUnit_Framework_TestCase
      */
     public function testStatusToArrayShouldReturnCurrentBoardStatusAsArray()
     {
-        $board = new Board();
-        $board->init();
-
-        $this->assertEquals([
-            ['', '', ''],
-            ['', '', ''],
-            ['', '', ''],
-        ], $board->statusToArray());
     }
 
     /**
@@ -88,52 +59,5 @@ class BoardTest extends \PHPUnit_Framework_TestCase
      */
     public function testJsonSerializeShouldReturnCurrentBoardStatusAsArray()
     {
-        $board = new Board();
-        $board->init();
-
-        $this->assertEquals([
-            [
-                [
-                    'team' => '',
-                    'winner' => false,
-                ],
-                [
-                    'team' => '',
-                    'winner' => false,
-                ],
-                [
-                    'team' => '',
-                    'winner' => false,
-                ],
-            ],
-            [
-                [
-                    'team' => '',
-                    'winner' => false,
-                ],
-                [
-                    'team' => '',
-                    'winner' => false,
-                ],
-                [
-                    'team' => '',
-                    'winner' => false,
-                ],
-            ],
-            [
-                [
-                    'team' => '',
-                    'winner' => false,
-                ],
-                [
-                    'team' => '',
-                    'winner' => false,
-                ],
-                [
-                    'team' => '',
-                    'winner' => false,
-                ],
-            ],
-        ], $board->jsonSerialize());
     }
 }
