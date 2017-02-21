@@ -26,7 +26,6 @@ class BoardTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(is_array($boardState));
         $this->assertCount(3, $boardState);
         $this->assertTrue(is_array($boardState[0]));
-        $this->assertInstanceOf(Cell::class, $boardState[0][0]);
     }
 
     /**
